@@ -4,6 +4,7 @@
 # Date : 15/01/2022
 
 import mysql.connector as connector
+import os, sys
 
 print('Database Name : ')
 dbase_name = input()
@@ -211,9 +212,24 @@ def own_sql():
 if __name__ == "__main__":
     check_database()
     cursor = database.cursor()
-    # create_database()
-    create_table()
-    # insert_item()
-    # update_item()
-    # delete_item()
-    # own_sql()
+    status = True
+    while status:
+        print('ENTER YOUR CHOICE\n1. Create Table\n2. Insert\n3. Update\n4. Delete\n5. Own Sql\n6. Display Table\n7. Clear\n8. Exit')
+        choice = int(input())
+        if choice == 1:
+            create_table()
+        elif choice == 2:
+            insert_item()
+        elif choice == 3:
+            update_item()
+        elif choice == 4:
+            delete_item()
+        elif choice == 5:
+            own_sql()
+        elif choice == 6:
+            display_table()
+        elif choice == 7:
+            os.system('cls')
+        elif choice == 8:
+            status = False
+            sys.exit()
